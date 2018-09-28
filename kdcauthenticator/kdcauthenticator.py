@@ -71,8 +71,8 @@ class KDCCallbackHandler(BaseHandler):
 
             username = None
             rc = None
-            if ":" in result:
-                rc, username = result.split(':')
+            if result is not None and "name" in result and ":" in result["name"]:
+                rc, username = result["name"].split(':')
             elif result != None:
                 rc = result
 
